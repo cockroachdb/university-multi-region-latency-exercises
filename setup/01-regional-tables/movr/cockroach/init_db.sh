@@ -44,17 +44,6 @@ echo "----------------------------------------------------------------------"
 cockroach sql --url $URL --file '../pricing/data/pricing_database.sql'
 
 echo "----------------------------------------------------------------------"
-
-echo "----------------------------------------------------------------------"
-echo "INITIALIZING PRICING DATABASE: ../pricing/data/pricing_database.sql"
-echo "----------------------------------------------------------------------"
-cockroach sql --url $URL --file '../pricing/data/pricing_database.sql'
-
-echo "TURN ON CHANGE DATA CAPTURE "
-echo "----------------------------------------------------------------------"
-cockroach sql --url $URL --execute 'SET CLUSTER SETTING kv.rangefeed.enabled = true;'
-
-echo "----------------------------------------------------------------------"
 echo "UPDATING DEMO PASSWORD (movr) "
 echo "----------------------------------------------------------------------"
 cockroach sql --url $URL --execute $'ALTER USER demo with password \'movr\';'
