@@ -13,6 +13,8 @@ ALTER DATABASE movr_users SET PRIMARY REGION "us-east";
 ALTER DATABASE movr_users ADD REGION "us-central";
 ALTER DATABASE movr_users ADD REGION "us-west";
 
+ALTER DATABASE movr_users SURVIVE REGION FAILURE;
+
 ALTER TABLE movr_users.users SET LOCALITY REGIONAL BY ROW;
 
 INSERT INTO movr_users.users (email,city,last_name,first_name,phone_numbers,crdb_region)
